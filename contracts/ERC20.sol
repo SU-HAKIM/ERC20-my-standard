@@ -28,11 +28,12 @@ contract ERC20{
         uint256 _value
     );
 
-    constructor(){
+    constructor(uint256 _totalSupply){
         name="ERC20";
         symbol="HK";
         decimals=18;
-        totalSupply=1000000;
+        totalSupply=_totalSupply;
+        balanceOf[msg.sender]=_totalSupply;
     }
 
     function transfer(address _to,uint256 _value) public returns(bool success){
